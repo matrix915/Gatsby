@@ -1,0 +1,255 @@
+@tailwind base;
+@tailwind components;
+@import url("https://fonts.googleapis.com/css2?family=Exo:wght@100;200;300;400;500;600;700;800;900&family=Roboto+Mono:wght@100;200;300;400;500;600;700&family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("../../static/fonts/fonts.css");
+
+body {
+  overflow-x: hidden !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+.navbar-hide {
+  display: block;
+
+  @media screen and (max-width: 1300px) {
+    display: none;
+  }
+}
+
+.navbar-menu-hide {
+  display: none;
+
+  @media screen and (max-width: 1300px) {
+    display: block;
+  }
+}
+
+.bg-gradient {
+  position: relative;
+  display: inline-block;
+}
+
+.bg-gradient:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  background: linear-gradient(
+    181.16deg,
+    #000000 1.75%,
+    rgba(0, 2, 27, 0.8) 20.64%,
+    rgba(0, 2, 27, 0.6) 52.8%,
+    rgba(0, 0, 0, 0.8) 82.41%,
+    #000000 99.77%
+  );
+}
+
+.grid-rows-7 {
+  grid-template-rows: repeat(7, 1fr);
+}
+
+.font-workSans {
+  font-family: "Work Sans", sans-serif;
+}
+
+.font-robotoMono {
+  font-family: "Roboto Mono", monospace;
+}
+
+.font-industryDemi {
+  font-family: "Industry-Demi", sans-serif;
+}
+
+.font-exo {
+  font-family: "Exo", sans-serif;
+}
+
+.font-industry {
+  font-family: "Industry", sans-serif;
+}
+
+.font-industryBoldItalic {
+  font-family: "Industry-BoldItalic", sans-serif;
+}
+
+.font-industryBold {
+  font-family: "Industry-Bold";
+}
+
+.font-industryBlack {
+  font-family: "Industry-Black", sans-serif;
+}
+
+.font-industryBook {
+  font-family: "Industry-Book", sans-serif;
+}
+
+.font-industryMedium {
+  font-family: "Industry-Medium", sans-serif;
+}
+
+.font-industryLight {
+  font-family: "Industry-Light", sans-serif;
+}
+
+.border-black {
+  border-color: black;
+}
+
+.bg-ProjectBlue {
+  background-color: #00aeef;
+}
+
+.order-1 {
+  order: 1;
+}
+
+.order-2 {
+  order: 2;
+}
+
+.slide-in {
+  animation: slide-in 0.5s ease-in-out;
+}
+
+.slide-out {
+  animation: slide-out 0.5s ease-in-out;
+}
+
+.top-down-anim {
+  animation: top-down-anim 0.2s ease-in-out;
+}
+
+.top-up-anim {
+  animation: top-up-anim 0.2s ease-in-out;
+}
+
+.line-clamp-3 {
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+}
+
+.bg-dark {
+  background-color: #000000;
+}
+
+.render-sales-text {
+  li {
+    margin-top: 1rem;
+  }
+}
+
+.bg-grey {
+  background-color: #f6f6f6;
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+.navbar-border-bottom {
+  color: #666;
+  display: inline-block;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+input,
+input:focus,
+input:active,
+input:hover,
+textarea,
+textarea:focus,
+textarea:active,
+textarea:hover,
+select {
+  outline: none;
+}
+
+.navbar-border-bottom::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #00aeef;
+  transition: width 0.3s;
+}
+
+.navbar-border-bottom:hover::after {
+  width: 100%;
+  //transition: width .3s;
+}
+
+.brand-image {
+  height: 80px;
+}
+
+.navbar-item-anim {
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  > div {
+    opacity: 0;
+    transform: translateY(5px);
+    transition: all 0.5s ease-in-out;
+    visibility: hidden;
+    z-index: -1;
+  }
+
+  &:hover > div {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(35px);
+    transition: all 0.5s ease-in-out;
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(120%);
+    -webkit-transform: translateX(120%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(120%);
+    -webkit-transform: translateX(120%);
+  }
+}
+
+@keyframes top-down-anim {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100vh;
+  }
+}
+
+@keyframes top-up-anim {
+  0% {
+    height: 100vh;
+  }
+  100% {
+    height: 0;
+  }
+}
+
+@tailwind utilities;

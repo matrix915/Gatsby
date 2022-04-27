@@ -1,0 +1,18 @@
+.testimonial-bg {
+  text-align: center;
+  min-height: 410px;
+  background: url("../../assets/testimonial-image.png") no-repeat center right;
+  background-blend-mode: screen;
+  background-size: cover;
+}
+/* target the active bullet */
+span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: #f6f6f6;
+  opacity: 1;
+}
+
+/* target all bullets */
+span.swiper-pagination-bullet {
+  background-color: rgba(255, 255, 255, 0.5);
+  opacity: 1;
+}

@@ -1,0 +1,59 @@
+@font-face {
+  font-family: "Industry-Bold";
+  src: url("Industry-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Industry-BoldItalic";
+  src: url("Industry-BoldItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Industry-Black";
+  src: url("Industry-Black.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Industry-BlackItalic";
+  src: url("Industry-BlackItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Industry-Demi";
+  src: url("Industry-Demi.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Industry-DemiItalic";
+  src: url("Industry-DemiItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Industry-Light";
+  src: url("Industry-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Industry-LightItalic";
+  src: url("Industry-LightItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Industry-Medium";
+  src: url("Industry-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Industry-MediumItalic";
+  src: url("Industry-MediumItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Industry-Book";
+  src: url("Industry-Book.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Industry-BookItalic";
+  src: url("Industry-BookItalic.ttf") format("truetype");
+}
