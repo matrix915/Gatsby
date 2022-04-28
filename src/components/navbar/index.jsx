@@ -35,91 +35,91 @@ const Navbar = ({ NavbarData }) => {
         <div>
           <Link to="/">
             <img
-              src={atlasOneLogo?.image.file.url}
-              alt={atlasOneLogo?.image.title}
+              src={atlasOneLogo.image.file.url}
+              alt={atlasOneLogo.image.title}
             />
           </Link>
         </div>
         {/* Desktop Version */}
-        <div className="flex-[0.9] navbar-hide">
+        <div className="flex-[0.9] navbar-hide ">
           <ul className="flex items-center justify-end">
             <li
-              className={`text-base font-bold uppercase cursor-pointer font-robotoMono navbar-item-anim navbar-border-bottom mx-[20px] ${
-                hoveredItem === headerMenuItems?.[0]?.title || hoveredItem === ""
+              className={`text-base font-medium uppercase cursor-pointer font-robotoMono group navbar-border-bottom  mx-[8px] ${
+                hoveredItem === headerMenuItems[0].title || hoveredItem === ""
                   ? "text-ProjectBlack"
                   : "text-[#FFFFFF80]"
               }`}
-              onMouseOver={() => setHoveredItem(headerMenuItems?.[0]?.title)}
-              onFocus={() => setHoveredItem(headerMenuItems?.[0]?.title)}
+              onMouseOver={() => setHoveredItem(headerMenuItems[0].title)}
+              onFocus={() => setHoveredItem(headerMenuItems[0].title)}
               onMouseOut={() => setHoveredItem("")}
               onBlur={() => setHoveredItem("")}
             >
-              {headerMenuItems?.[0]?.title}
-              <div>
+              {headerMenuItems[0].title}
+              <div className="hidden transition duration-700 ease-in-out group-hover:block">
                 <ProductsDropdown
-                  DropdownData={headerMenuItems?.[0].headerMenuDropdown?.[0]?.items}
+                  DropdownData={headerMenuItems[0].headerMenuDropdown[0].items}
                 />
               </div>
             </li>
             <li
-              className={`text-base font-bold uppercase cursor-pointer font-robotoMono navbar-border-bottom mx-[20px] navbar-item-anim ${
-                hoveredItem === headerMenuItems?.[1]?.title || hoveredItem === ""
+              className={`text-base font-medium uppercase cursor-pointer font-robotoMono group navbar-border-bottom  mx-[8px] ${
+                hoveredItem === headerMenuItems[1].title || hoveredItem === ""
                   ? "text-ProjectBlack"
                   : "text-[#FFFFFF80]"
               }`}
-              onMouseOver={() => setHoveredItem(headerMenuItems?.[1]?.title)}
-              onFocus={() => setHoveredItem(headerMenuItems?.[1]?.title)}
+              onMouseOver={() => setHoveredItem(headerMenuItems[1].title)}
+              onFocus={() => setHoveredItem(headerMenuItems[1].title)}
               onMouseOut={() => setHoveredItem("")}
               onBlur={() => setHoveredItem("")}
             >
-              {headerMenuItems?.[1]?.title}
-              <div>
+              {headerMenuItems[1].title}
+              <div className="hidden transition duration-700 ease-in-out group-hover:block ">
                 <SolutionsDropdown
-                  DropdownData1={headerMenuItems?.[1]?.headerMenuDropdown?.[0]?.items}
-                  DropdownData3={headerMenuItems?.[1]?.headerMenuDropdown?.[1]?.items}
+                  DropdownData1={headerMenuItems[1].headerMenuDropdown[0].items}
+                  DropdownData3={headerMenuItems[1].headerMenuDropdown[1].items}
                 />
               </div>
             </li>
             <li
-              className={`text-base font-bold uppercase cursor-pointer font-robotoMono navbar-border-bottom mx-[20px] navbar-item-anim ${
-                hoveredItem === headerMenuItems?.[2]?.title || hoveredItem === ""
+              className={`text-base font-medium uppercase cursor-pointer font-robotoMono group navbar-border-bottom  mx-[8px] ${
+                hoveredItem === headerMenuItems[2].title || hoveredItem === ""
                   ? "text-ProjectBlack"
                   : "text-[#FFFFFF80]"
               }`}
-              onMouseOver={() => setHoveredItem(headerMenuItems?.[2]?.title)}
-              onFocus={() => setHoveredItem(headerMenuItems?.[2]?.title)}
+              onMouseOver={() => setHoveredItem(headerMenuItems[2].title)}
+              onFocus={() => setHoveredItem(headerMenuItems[2].title)}
               onMouseOut={() => setHoveredItem("")}
               onBlur={() => setHoveredItem("")}
             >
-              {headerMenuItems?.[2]?.title}
-              <div>
+              {headerMenuItems[2].title}
+              <div className="hidden transition duration-700 ease-in-out group-hover:block">
                 <ProductsDropdown
-                  DropdownData={headerMenuItems?.[2]?.headerMenuDropdown?.[0]?.items}
+                  DropdownData={headerMenuItems[2].headerMenuDropdown[0].items}
                 />
               </div>
             </li>
             <li
-              className={`text-base font-bold uppercase cursor-pointer font-robotoMono navbar-border-bottom mx-[20px] navbar-item-anim ${
-                hoveredItem === headerMenuItems?.[3]?.title || hoveredItem === ""
+              className={`text-base font-medium uppercase cursor-pointer font-robotoMono group navbar-border-bottom mx-[8px] ${
+                hoveredItem === headerMenuItems[3].title || hoveredItem === ""
                   ? "text-ProjectBlack"
                   : "text-[#FFFFFF80]"
               }`}
-              onMouseOver={() => setHoveredItem(headerMenuItems?.[3]?.title)}
+              onMouseOver={() => setHoveredItem(headerMenuItems[3].title)}
               onMouseOut={() => setHoveredItem("")}
-              onFocus={() => setHoveredItem(headerMenuItems?.[3].title)}
+              onFocus={() => setHoveredItem(headerMenuItems[3].title)}
               onBlur={() => setHoveredItem("")}
             >
-               {headerMenuItems?.[3]?.title}
-              <div>
+              {headerMenuItems[3].title}
+              <div className="hidden transition duration-700 ease-in-out group-hover:block">
                 <ProductsDropdown
-                  DropdownData={headerMenuItems?.[3]?.headerMenuDropdown?.[0]?.items}
+                  DropdownData={headerMenuItems[3].headerMenuDropdown[0].items}
                 />
               </div>
             </li>
 
             <div className="flex items-center ml-[8px]">
-              {headerButtons?.map((buttonData, index) => (
-                <li key={index} className={index === headerButtons.length - 1 ? "ml-[8px]" : "mx-[8px]"}>
+              {headerButtons.map((buttonData, index) => (
+                <li key={index} className="mx-[8px]">
                   <Button
                     title={buttonData.title}
                     link={buttonData.title.split(" ").join("-").toLowerCase()}

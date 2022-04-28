@@ -2,16 +2,16 @@ import React from "react"
 
 const SolutionsDropdown = ({ DropdownData1, DropdownData3 }) => {
   return (
-    <div className="absolute z-50 -ml-[32.6rem] cursor-default">
+    <div className="absolute z-50 pt-6 -ml-[28rem] cursor-default">
       <div className="flex rounded-sm bg-ProjectBlack shadow-project w-[1020px]">
         <div className="w-[680px] h-[610px] pt-[30px] pb-[20px]">
           <h3 className="pl-[28px] text-sm font-bold tracking-wider text-black font-robotoMono">
             BY USE CASE
           </h3>
           <div className="grid grid-rows-7 grid-cols-2 grid-flow-col">
-            {DropdownData1?.map((item, index) => (
+            {DropdownData1.map((item, index) => (
               <div
-                className={`w-[300px] h-[60px] mt-[8px] hover:bg-[#0000000D] flex items-center justify-between px-[11.75px] mx-auto cursor-pointer ${
+                className={`w-[300px] h-[60px] mt-[17px] hover:bg-[#0000000D] flex items-center justify-between px-[11.75px] mx-auto cursor-pointer ${
                   index > 6 ? "mr-[20px]" : ""
                 }`}
                 key={index}
@@ -36,7 +36,7 @@ const SolutionsDropdown = ({ DropdownData1, DropdownData3 }) => {
           </h3>
 
           <div className="flex flex-col items-start justify-between">
-            {DropdownData3?.map((item, ind) => (
+            {DropdownData3.map((item, ind) => (
               <div
                 className="w-[300px] h-[65px] mt-[12.5px] flex items-center justify-between px-4 mx-auto cursor-pointer"
                 key={ind}

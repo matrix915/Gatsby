@@ -25,7 +25,7 @@ const Notice = ({ NoticeData }) => {
     <div
       className={`w-screen h-[48px] py-3 px-2 lg:px-40
       ${
-        NoticeData.theme[0] === "Light"
+        NoticeData?.theme?.[0] === "Light"
           ? "bg-ProjectBlack text-black"
           : "bg-black text-ProjectBlack"
       }

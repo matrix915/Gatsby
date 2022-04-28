@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react"
-// import Button from "../button"
-import Text from "../text"
+import Button from "../button"
 import PropTypes from "prop-types"
 
 // Import Swiper React components
@@ -43,7 +42,7 @@ const ProductCard = ({ theme, alignment, content }) => {
   useEffect(() => {
     if (content[contentIndex].contentBlockDescription) {
       setContent(
-        typeof window !== "undefined" ? renderRichText(content[contentIndex]?.contentBlockDescription, options) : ""
+        renderRichText(content[contentIndex].contentBlockDescription, options)
       )
       return contentDescription
     }
@@ -55,14 +54,9 @@ const ProductCard = ({ theme, alignment, content }) => {
       className={`w-screen mx-auto bg-${theme} min-h-[620px] h-full py-10 px-5 lg:px-40 flex items-center justify-center flex-col`}
     >
       {content && content?.length > 1 && (
-        <div
-          className="flex items-center justify-center w-full mx-auto mb-10"
-          data-sal="slide-up"
-          data-sal-delay="0"
-          data-sal-easing="ease"
-        >
+        <div className="flex items-center justify-center w-full mx-auto mb-10">
           {content?.forEach(id => (
-            <Text
+            <button
               className={
                 contentIndex === id
                   ? "border-b-[3px] border-ProjectBlue"
@@ -78,17 +72,12 @@ const ProductCard = ({ theme, alignment, content }) => {
               >
                 Option {id + 1}
               </h5>
-            </Text>
+            </button>
           ))}
         </div>
       )}
-      <div className="flex items-center justify-center w-full max-w-screen-xl mx-auto">
-        <div 
-          className="flex flex-col items-center justify-center w-full mx-auto md:justify-between md:flex-row" 
-          data-sal="slide-up" 
-          data-sal-delay="0" 
-          data-sal-easing="ease"
-        >
+      <div className="flex items-center justify-center max-w-screen-xl w-full mx-auto">
+        <div className="flex flex-col items-center justify-center w-full mx-auto md:justify-between md:flex-row">
           {content && content[contentIndex] && (
             <>
               <div
@@ -107,13 +96,14 @@ const ProductCard = ({ theme, alignment, content }) => {
                   {content[contentIndex].contentBlockTitle}
                 </h1>
                 {contentDescription}
-                <div 
-                  className="my-[30px]">
-                  <Text
-                    title={content[contentIndex].actionText}
+                <div className="my-[30px]">
+                  <Button
+                    title={content[contentIndex].contentBlockButtons[0].title}
                     variant="secondary"
-                    link={content[contentIndex].actionUrl}
-                    theme="dark"
+                    link={content[contentIndex].contentBlockButtons[0].title}
+                    theme={content[
+                      contentIndex
+                    ].contentBlockButtons[0].theme[0].toLowerCase()}
                   />
                 </div>
               </div>
@@ -148,7 +138,7 @@ const ProductCard = ({ theme, alignment, content }) => {
                   {content[contentIndex]?.images?.length > 1 && (
                     <div className="my-10">
                       {content[contentIndex]?.images?.map((image, id) => (
-                        <Text
+                        <button
                           className={
                             imageIndex === id
                               ? "border-b-[3px] border-ProjectBlue"
@@ -166,7 +156,7 @@ const ProductCard = ({ theme, alignment, content }) => {
                           >
                             {image.title}
                           </h5>
-                        </Text>
+                        </button>
                       ))}
                     </div>
                   )}

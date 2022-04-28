@@ -6,7 +6,7 @@ const Button = ({ link, title, variant, theme }) => {
   return (
     <Link
       to={`/${link}`}
-      className={`flex items-center justify-center h-12 font-semibold text-center uppercase border-2 rounded-sm font-workSans min-w-[150px] text-sm${
+      className={`flex items-center justify-center h-12 font-normal text-center uppercase border-2 rounded-sm font-workSans w-36 text-sm${
         variant === "primary" && theme === "dark"
           ? " bg-black border-black text-ProjectBlack hover:bg-transparent hover:text-ProjectBlack transition duration-300 ease-in-out"
           : ""

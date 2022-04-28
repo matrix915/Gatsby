@@ -30,19 +30,14 @@ const OurProducts = ({ OurProductsData }) => {
               : "justify-start"
           }`}
         >
-          <div 
-            className="text-center"
-            data-sal="slide-up" 
-            data-sal-delay="0" 
-            data-sal-easing="ease"
-          >
+          <div className="text-center">
             <p className="my-5 text-base font-bold leading-5 tracking-wider uppercase text-ProjectBlue font-robotoMono">
               {OurProductsData.tagline}
             </p>
             <h1 className="my-5 text-[44px] font-normal font-industryBold max-w-[720px] leading-[120%]">
               {OurProductsData.title}
             </h1>
-            {typeof window !== "undefined" ? renderRichText(OurProductsData.description, options) : ""}
+            {renderRichText(OurProductsData.description, options)}
           </div>
         </div>
       </div>

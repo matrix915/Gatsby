@@ -16,12 +16,7 @@ const Benefits = ({ variant, heading, benefit1, benefit2, benefit3 }) => {
           </h1>
         )}
         {/* Section One Benefit Items */}
-        <div 
-          className="flex flex-wrap items-start justify-start pt-4 md:justify-between md:items-center lg:flex-nowrap"
-          data-sal = "slide-up"
-          data-sal-delay="0"
-          data-sal-easing="ease"
-        >
+        <div className="flex flex-wrap items-start justify-start pt-4 md:justify-between md:items-center lg:flex-nowrap">
           <div className="flex items-center justify-between mb-12">
             <hr className="min-w-[90px] h-[1px] rotate-90 border-2 border-ProjectBlue bg-ProjectBlue -mx-[25px]" />
             <p
@@ -33,11 +28,7 @@ const Benefits = ({ variant, heading, benefit1, benefit2, benefit3 }) => {
               {benefit1.substring(benefit1.indexOf(" ") + 1)}
             </p>
           </div>
-          <div className="flex items-center justify-between mb-12"
-          data-sal="slide-up"
-          data-sal-delay="0"
-          data-sal-easing="ease"
-          >
+          <div className="flex items-center justify-between mb-12">
             <hr className="min-w-[90px] h-[1px] rotate-90 border-2 border-ProjectBlue bg-ProjectBlue -mx-[25px]" />
             <p
               className={`max-w-[336px] text-lg tracking-wider font-industryMedium font-normal text-[19px] ${
@@ -62,7 +53,7 @@ const Benefits = ({ variant, heading, benefit1, benefit2, benefit3 }) => {
         </div>
 
         {/* Section Two Image */}
-        <div data-sal="slide-up" data-sal-delay="0" data-sal-easing="ease">
+        <div>
           <img
             src={require("../../assets/Animation.png").default}
             alt="Animation"

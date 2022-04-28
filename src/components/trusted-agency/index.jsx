@@ -11,7 +11,7 @@ const TrustedAgency = ({ TrustedAgencyData }) => {
             {TrustedAgencyData.title}
           </p>
           <div className="grid grid-cols-3 lg:grid-cols-9 place-items-center mt-14 mb-20">
-            {TrustedAgencyData.customers?.map((item, index) => (
+            {TrustedAgencyData.customers.map((item, index) => (
               <GatsbyImage
                 image={item.logo.gatsbyImageData}
                 alt={item.customerName}

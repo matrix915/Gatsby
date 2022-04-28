@@ -2,11 +2,12 @@ import React from "react"
 import Layout from "../components/layout"
 import { graphql } from "gatsby"
 import RequestForm from "../components/request-form"
+import TrustedAgency from "../components/trusted-agency"
 import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 
 const TalkToSales = ({ data }) => {
-  const pageData = data.allContentfulPage.edges[3].node.sections
+  const pageData = data.allContentfulPage.edges[0].node.sections
   const { formFieldGroups, guid } = data.hubspotForm
 
   const options = {
@@ -35,10 +36,10 @@ const TalkToSales = ({ data }) => {
   return (
     <Layout NavbarData={pageData[0]} FooterData={pageData[3].footerColumns}>
       <div className="w-full bg-black mx-auto relative pt-[104px]">
-        <div className="flex flex-col items-start justify-between w-full max-w-screen-2xl px-5 lg:px-40 2xl:pl-[130px] 2xl:pr-[120px] py-5 mx-auto md:flex-row">
+        <div className="flex flex-col items-start justify-between w-full max-w-screen-xl px-5 mx-auto lg:px-0 md:flex-row">
           {/* Section One (Text) */}
           <div className="w-full md:w-1/2 mr-[67px]">
-            <h4 className="text-sm my-0 md:text-base font-bold tracking-wider uppercase text-ProjectBlue font-robotoMono leading-[21px] pb-[10px]">
+            <h4 className="text-sm my-0 md:text-base font-bold tracking-wider uppercase text-ProjectBlue font-robotoMono leading-[21px] py-[10px]">
               {formLeft.tagline}
             </h4>
             <h1 className="text-[28px] py-[10px] md:text-[54px] my-0 trackig-wide uppercase text-ProjectBlack font-industryBlack not-italic leading-[120%] font-normal md:max-w-[546px]">
@@ -57,6 +58,9 @@ const TalkToSales = ({ data }) => {
             <RequestForm formFieldGroups={formFieldGroups} id={guid} />
           </div>
         </div>
+      </div>
+      <div className="pt-[160px] bg-black">
+        <TrustedAgency TrustedAgencyData={pageData[2]} />
       </div>
     </Layout>
   )
