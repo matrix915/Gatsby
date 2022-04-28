@@ -12,9 +12,10 @@ const FeatureCustomer = ({ FeatureCustomerData }) => {
                 </p>
                 <div 
                     className="flex flex-wrap justify-center items-center pt-6 w-full lg:w-auto"      
-                    data-sal = "slide-up"
-                    data-sal-delay="0"
-                    data-sal-easing="ease">
+                    data-sal-duration="1000"
+                    data-sal="slide-up"
+                    data-sal-delay="600" 
+                    >
                     {customers?.map((v, i) => (
                         <div className="p-5 lg:mx-5 w-1/2 lg:w-auto flex justify-center" key={i}>
                             <img

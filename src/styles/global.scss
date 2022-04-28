@@ -158,8 +158,6 @@ body {
   margin: 0;
   text-transform: uppercase;
 }
-.navbar-border-bottom {
-}
 
 input,
 input:focus,
@@ -185,6 +183,33 @@ select {
 .navbar-border-bottom:hover::after {
   width: 100%;
   //transition: width .3s;
+}
+
+.brand-image {
+  height: 80px;
+}
+
+.navbar-item-anim {
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  > div {
+    opacity: 0;
+    transform: translateY(5px);
+    transition: all 0.5s ease-in-out;
+    visibility: hidden;
+    z-index: -1;
+  }
+
+  &:hover > div {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(35px);
+    transition: all 0.5s ease-in-out;
+  }
 }
 
 @keyframes slide-in {

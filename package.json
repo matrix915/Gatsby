@@ -23,6 +23,7 @@
     "gatsby-plugin-image": "^2.7.0",
     "gatsby-plugin-netlify": "^4.1.0",
     "gatsby-plugin-sass": "^5.7.0",
+    "gatsby-plugin-scroll-reveal": "^0.0.7",
     "gatsby-plugin-sharp": "^4.7.0",
     "gatsby-source-contentful": "^7.5.0",
     "gatsby-source-filesystem": "^4.7.0",

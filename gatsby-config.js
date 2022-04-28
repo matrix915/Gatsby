@@ -10,6 +10,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-netlify`,
+    `gatsby-plugin-scroll-reveal`,
     {
       resolve: `gatsby-source-contentful`,
       options: {

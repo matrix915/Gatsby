@@ -3,7 +3,12 @@ import { Link } from "gatsby"
 
 const BlogCard = ({ title, heading, description, link }) => {
   return (
-    <div className="w-[353px] my-5 mx-2">
+    <div
+      className="w-[353px] my-5 mx-2"
+      data-sal="slide-up"
+      data-sal-delay="0"
+      data-sal-easing="ease"
+    >
       <img
         src={require("../../assets/Rectangle.png").default}
         alt="Rectangle"

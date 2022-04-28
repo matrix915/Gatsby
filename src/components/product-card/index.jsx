@@ -42,7 +42,7 @@ const ProductCard = ({ theme, alignment, content }) => {
   useEffect(() => {
     if (content[contentIndex].contentBlockDescription) {
       setContent(
-        renderRichText(content[contentIndex].contentBlockDescription, options)
+        typeof window !== "undefined" ? renderRichText(content[contentIndex]?.contentBlockDescription, options) : ""
       )
       return contentDescription
     }
@@ -54,7 +54,13 @@ const ProductCard = ({ theme, alignment, content }) => {
       className={`w-screen mx-auto bg-${theme} min-h-[620px] h-full py-10 px-5 lg:px-40 flex items-center justify-center flex-col`}
     >
       {content && content?.length > 1 && (
-        <div className="flex items-center justify-center w-full mx-auto mb-10">
+        <div
+          className="flex items-center justify-center w-full mx-auto mb-10"
+          data-sal-duration="700"
+          data-sal="slide-up"
+          data-sal-delay="200" 
+          data-sal-easing="ease-out-bounce"
+        >
           {content?.forEach(id => (
             <button
               className={
@@ -76,8 +82,14 @@ const ProductCard = ({ theme, alignment, content }) => {
           ))}
         </div>
       )}
-      <div className="flex items-center justify-center max-w-screen-xl w-full mx-auto">
-        <div className="flex flex-col items-center justify-center w-full mx-auto md:justify-between md:flex-row">
+      <div className="flex items-center justify-center w-full max-w-screen-xl mx-auto">
+        <div 
+          className="flex flex-col items-center justify-center w-full mx-auto md:justify-between md:flex-row" 
+          data-sal-duration="700"
+          data-sal="slide-up"
+          data-sal-delay="200" 
+          data-sal-easing="ease-out-bounce"
+        >
           {content && content[contentIndex] && (
             <>
               <div
@@ -96,14 +108,13 @@ const ProductCard = ({ theme, alignment, content }) => {
                   {content[contentIndex].contentBlockTitle}
                 </h1>
                 {contentDescription}
-                <div className="my-[30px]">
+                <div 
+                  className="my-[30px] inline-flex hover:border-b-2 hover:border-[#00aeef]">
                   <Button
-                    title={content[contentIndex].contentBlockButtons[0].title}
+                    title={content[contentIndex].actionText}
                     variant="secondary"
-                    link={content[contentIndex].contentBlockButtons[0].title}
-                    theme={content[
-                      contentIndex
-                    ].contentBlockButtons[0].theme[0].toLowerCase()}
+                    link={content[contentIndex].actionUrl}
+                    theme="dark"
                   />
                 </div>
               </div>

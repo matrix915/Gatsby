@@ -6,7 +6,7 @@ const Button = ({ link, title, variant, theme }) => {
   return (
     <Link
       to={`/${link}`}
-      className={`flex items-center justify-center h-12 font-normal text-center uppercase border-2 rounded-sm font-workSans w-36 text-sm${
+      className={`flex items-center font-semibold text-center rounded-sm font-workSans min-w-[150px] text-sm${
         variant === "primary" && theme === "dark"
           ? " bg-black border-black text-ProjectBlack hover:bg-transparent hover:text-ProjectBlack transition duration-300 ease-in-out"
           : ""
@@ -30,9 +30,22 @@ const Button = ({ link, title, variant, theme }) => {
         variant === "primary" && theme === "dark"
           ? " bg-transparent border-black text-black hover:bg-black hover:border-black hover:text-ProjectBlack transition duration-300 ease-in-out active:bg-black active:border-black active:text-ProjectBlack"
           : ""
-      }`}
+      }${
+        link === "talk-to-sales" || link === "get-a-demo" ? " justify-center border-2 h-12" :  " justify-start text-ProjectBlue 2xl:text-[19px] h-8"
+      }
+      `}
     >
       {title}
+      {
+        link === "talk-to-sales" || link === "get-a-demo"  ? "": (
+          <img
+            src={require("../../assets/ArrowRight.png").default}
+            alt="Rectangle"
+            className="w-[16px] h-[16px] ml-4"
+          />
+        ) 
+      }
+
     </Link>
   )
 }

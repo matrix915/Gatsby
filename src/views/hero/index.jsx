@@ -12,7 +12,13 @@ const Hero = ({ HeroData }) => {
     renderNode: {
       [BLOCKS.PARAGRAPH]: (node, children) => {
         return (
-          <p className="text-ProjectBlack font-workSans font-normal leading-[150%] max-w-[514px] mt-4 text-left text-base md:text-[21px]">
+          <p 
+            className="text-ProjectBlack font-workSans font-normal leading-[150%] max-w-[514px] mt-4 text-left text-base md:text-[21px]"
+            data-sal-duration="1200"
+            data-sal="slide-up"
+            data-sal-delay="600" 
+            data-sal-easing="ease-out-bounce"
+          >
             {children}
           </p>
         )
@@ -39,10 +45,13 @@ const Hero = ({ HeroData }) => {
               : "mt-20"
           }`}
         >
-          <div
-            className={heroType[0] === "Graphic Hero" ? "md:w-1/2" : "md:w-2/3"}
-          >
-            <p className="text-base font-bold tracking-wider uppercase text-ProjectBlue font-robotoMono">
+          <div className={heroType[0] === "Graphic Hero" ? "md:w-1/2" : "md:w-2/3"}>
+            <p className="text-base font-bold tracking-wider uppercase text-ProjectBlue font-robotoMono"
+            data-sal-duration="1200"
+            data-sal="slide-up"
+            data-sal-delay="300" 
+            data-sal-easing="ease-out-bounce"
+              >
               {content.contentBlockTagline}
             </p>
             <h1
@@ -50,22 +59,29 @@ const Hero = ({ HeroData }) => {
                 heroType[0] === "Primary" || heroType[0] === "Image"
                   ? "md:text-[62px] md:max-w-[746px]"
                   : "md:text-[56px] md:max-w-[746px]"
-              }  tracking-wide uppercase text-ProjectBlack font-industryBold not-italic leading-[120%] font-normal`}
-            >
+              } tracking-wide uppercase text-ProjectBlack font-industryBold not-italic leading-[120%] font-normal`}
+              data-sal-duration="1200"
+              data-sal="slide-up"
+              data-sal-delay="500" 
+              data-sal-easing="ease-out-bounce"
+              >
               {content.contentBlockTitle}
             </h1>
             {renderRichText(content.contentBlockDescription, options)}
-            <div className="flex items-center justify-start mt-5 md:max-w-xs">
-              {content.contentBlockButtons.map((button, index) => (
-                <div className="mr-4" key={index}>
-                  <Button
-                    title={button.title}
-                    link={button.title.split(" ").join("-").toLowerCase()}
-                    theme={button.theme[0].toLowerCase()}
-                    variant={index === 0 ? "secondary" : "primary"}
-                  />
-                </div>
-              ))}
+            <div className="flex items-center justify-start mt-5 md:max-w-xs"
+             data-sal-duration="1200"
+             data-sal="slide-up"
+             data-sal-delay="800" 
+             data-sal-easing="ease-out-bounce"
+            >
+              <div className="mr-4">
+                <Button
+                  title={content.actionText}
+                  link={content.actionUrl}
+                  // theme={button.theme[0].toLowerCase()}
+                  // variant={index === 0 ? "secondary" : "primary"}
+                />
+              </div>
             </div>
           </div>
           <div

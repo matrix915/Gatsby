@@ -16,7 +16,13 @@ const Benefits = ({ variant, heading, benefit1, benefit2, benefit3 }) => {
           </h1>
         )}
         {/* Section One Benefit Items */}
-        <div className="flex flex-wrap items-start justify-start pt-4 md:justify-between md:items-center lg:flex-nowrap">
+        <div 
+          className="flex flex-wrap items-start justify-start pt-4 md:justify-between md:items-center lg:flex-nowrap"
+          data-sal-duration="1200"
+          data-sal="slide-up"
+          data-sal-delay="500" 
+          data-sal-easing="ease-out-bounce"
+        >
           <div className="flex items-center justify-between mb-12">
             <hr className="min-w-[90px] h-[1px] rotate-90 border-2 border-ProjectBlue bg-ProjectBlue -mx-[25px]" />
             <p
@@ -28,7 +34,12 @@ const Benefits = ({ variant, heading, benefit1, benefit2, benefit3 }) => {
               {benefit1.substring(benefit1.indexOf(" ") + 1)}
             </p>
           </div>
-          <div className="flex items-center justify-between mb-12">
+          <div className="flex items-center justify-between mb-12"
+           data-sal-duration="1000"
+           data-sal="slide-up"
+           data-sal-delay="800" 
+           data-sal-easing="ease-out-bounce"
+          >
             <hr className="min-w-[90px] h-[1px] rotate-90 border-2 border-ProjectBlue bg-ProjectBlue -mx-[25px]" />
             <p
               className={`max-w-[336px] text-lg tracking-wider font-industryMedium font-normal text-[19px] ${
@@ -53,7 +64,12 @@ const Benefits = ({ variant, heading, benefit1, benefit2, benefit3 }) => {
         </div>
 
         {/* Section Two Image */}
-        <div>
+        <div 
+        data-sal-duration="700"
+        data-sal="slide-up"
+        data-sal-delay="200" 
+        data-sal-easing="ease-out-bounce"
+        >
           <img
             src={require("../../assets/Animation.png").default}
             alt="Animation"

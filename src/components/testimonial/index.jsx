@@ -34,7 +34,7 @@ const Testimonial = () => {
             <SwiperSlide key={data.id}>
               <div className="flex flex-col items-start justify-center px-5 text-center min-h-72 lg:px-40">
                 <div className="flex items-start justify-start">
-                  <p className="text-6xl font-normal tracking-wide uppercase font-industryBold text-ProjectBlue">
+                  <p className="text-6xl font-normal tracking-wide uppercase font-industryBold text-white">
                     “
                   </p>
                   <h3 className="font-industryBold font-normal text-2xl md:text-5xl text-white leading-[120%] max-w-[1056px] text-left ml-3">

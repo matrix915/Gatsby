@@ -9,48 +9,48 @@ import Hero from "../views/hero"
 import OurProducts from "../views/our-products"
 import WhatsNew from "../views/what's-new"
 import TalkToAnExpert from "../components/talk-to-an-expert"
+import FeatureCustomer from "../components/feature-customer"
 
 export default function Home({ data }) {
-  const pageData = data.allContentfulPage?.edges[1]?.node?.sections
-  const HeroData = pageData?.[2]
-  const OurPlatformData = pageData?.[4]
-  const OurProductData = pageData?.slice(8, 12)
-  const TrustedAgencyData = pageData?.[5]
+  const pageData = data.allContentfulPage.edges[4].node.sections
+  const HeroData = pageData[2]
+  const OurPlatformData = pageData[4]
+  const OurProductData = pageData.slice(8, 12)
+  const TrustedAgencyData = pageData[5]
+  const FeatureCustomerData = pageData[5]
 
-  console.log(pageData?.[0])
   return (
     <Layout
-      NoticeData={pageData?.[0]}
-      NavbarData={pageData?.[1]}
-      FooterData={pageData?.[14]?.footerColumns}
+      NoticeData={pageData[0]}
+      NavbarData={pageData[1]}
+      FooterData={pageData[14]?.footerColumns}
     >
       <Hero HeroData={HeroData} />
       <Benefits
-        variant={
-          pageData?.[3]?.theme?.[0]?.toLowerCase()
-        }
+        variant={pageData[3]?.theme[0].toLowerCase()}
         // heading="A single platform to realize your investment in citizen engagement"
-        benefit1={pageData?.[3]?.benefit1}
-        benefit2={pageData?.[3]?.benefit2}
-        benefit3={pageData?.[3]?.benefit3}
+        benefit1={pageData[3]?.benefit1}
+        benefit2={pageData[3]?.benefit2}
+        benefit3={pageData[3]?.benefit3}
       />
+      <FeatureCustomer FeatureCustomerData = {FeatureCustomerData}></FeatureCustomer>
       <ProductCard
-        alignment={OurPlatformData?.alignment?.[0].toLowerCase()}
-        theme={OurPlatformData?.theme?.[0]?.toLowerCase()}
+        alignment={OurPlatformData?.alignment[0].toLowerCase()}
+        theme={OurPlatformData?.theme[0].toLowerCase()}
         content={OurPlatformData?.contentBlocks}
       />
-      <OurProducts OurProductsData={pageData?.[7]} />
+      <OurProducts OurProductsData={pageData[7]} />
       {OurProductData?.map((item, index) => (
         <ProductCard
-          alignment={item?.alignment?.[0].toLowerCase()}
-          theme={item?.theme?.[0]?.toLowerCase()}
+          alignment={item?.alignment[0].toLowerCase()}
+          theme={item?.theme[0].toLowerCase()}
           content={item?.contentBlocks}
           key={index}
         />
       ))}
       <Testimonial />
       <WhatsNew />
-      <TalkToAnExpert CalltoAction={pageData?.[13]} />
+      <TalkToAnExpert CalltoAction={pageData[13]} />
     </Layout>
   )
 }
@@ -70,18 +70,8 @@ export const query = graphql`
                 title
               }
               content {
-                contentBlockButtons {
-                  ... on ContentfulPrimaryButton {
-                    id
-                    theme
-                    title
-                  }
-                  ... on ContentfulSecondaryButton {
-                    id
-                    theme
-                    title
-                  }
-                }
+                actionText
+                actionUrl
                 contentBlockDescription {
                   raw
                 }
@@ -106,17 +96,8 @@ export const query = graphql`
               sectionName
               theme
               contentBlocks {
-                contentBlockButtons {
-                  ... on ContentfulPrimaryButton {
-                    title
-                    theme
-                  }
-                  ... on ContentfulSecondaryButton {
-                    id
-                    theme
-                    title
-                  }
-                }
+               actionText
+                actionUrl
                 contentBlockDescription {
                   raw
                 }

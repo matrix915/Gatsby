@@ -27,7 +27,7 @@ const Footer = ({ variant, FooterData }) => {
         {/* Footer Links */}
         <div>
           <ul className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5">
-            {FooterData.map((data, index) => (
+            {FooterData?.map((data, index) => (
               <div key={index} className="my-3">
                 <li
                   className={`font-robotoMono font-medium text-base mb-[30px] ${

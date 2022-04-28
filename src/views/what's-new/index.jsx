@@ -5,7 +5,13 @@ import { BlogPosts } from "./data"
 
 const WhatsNew = () => {
   return (
-    <div className="w-screen mx-auto my-5 md:my-20 ">
+    <div 
+      className="w-screen mx-auto my-5 md:my-20 " 
+      data-sal-duration="700"
+      data-sal="slide-up"
+      data-sal-delay="200" 
+      data-sal-easing="ease-out-bounce"
+    >
       <div className="w-full px-5 mx-auto max-w-screen-2xl lg:px-40">
         <div className="flex flex-wrap items-center justify-between my-10">
           <p className="font-industryBold font-normal text-5xl text-black leading-[120%]">
