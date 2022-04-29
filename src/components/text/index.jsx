@@ -1,12 +1,12 @@
 import React from "react"
 import { Link } from "gatsby"
-// import PropTypes from "prop-types"
+import ArrowRight from "../../assets/ArrowRight.svg";
 
 const Text = ({ link, title, variant, theme }) => {
   return (
     <Link
       to={`/${link}`}
-      className={`flex items-center justify-start h-12 font-semibold text-center text-ProjectBlue hover:underline rounded-sm font-workSans min-w-[150px] text-[19px]${
+      className={`flex items-center justify-start h-12 font-medium text-center leading-7 text-ProjectBlue hover:underline rounded-sm font-workSans min-w-[150px] text-[19px]${
         variant === "primary" && theme === "dark"
           ? " bg-black border-black text-ProjectBlack hover:bg-transparent hover:text-ProjectBlack transition duration-300 ease-in-out"
           : ""
@@ -31,15 +31,12 @@ const Text = ({ link, title, variant, theme }) => {
           ? " bg-transparent border-black text-black hover:bg-black hover:border-black hover:text-ProjectBlack transition duration-300 ease-in-out active:bg-black active:border-black active:text-ProjectBlack"
           : ""
       }`}
-      // ${
-      //   link === "talk-to-sales" || link === "get-a-demo" ? " justify-center border-2 h-12" :  " justify-start text-ProjectBlue text-[19px] h-8"
-      // }
     >
       {title}
       {
         link === "talk-to-sales" || link === "get-a-demo"  ? "": (
           <img
-            src={require("../../assets/ArrowRight.png").default}
+            src={ArrowRight}
             alt="Rectangle"
             className="w-[16px] h-[16px] ml-4"
           />
@@ -48,12 +45,5 @@ const Text = ({ link, title, variant, theme }) => {
     </Link>
   )
 }
-
-// Button.propTypes = {
-//   link: PropTypes.string.isRequired,
-//   title: PropTypes.string.isRequired,
-//   variant: PropTypes.string.isRequired,
-//   theme: PropTypes.string.isRequired,
-// }
 
 export default Text

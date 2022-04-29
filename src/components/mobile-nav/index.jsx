@@ -44,7 +44,7 @@ const MobileNav = ({
         />
       </div>
       <ul className="flex flex-col items-start justify-start mx-3 font-semibold tracking-wide font-nunito text-primary">
-        {sidebarFirstMenuData.map((item, index) => (
+        {sidebarFirstMenuData?.map((item, index) => (
           <li
             className="w-full mb-10 text-base font-medium uppercase text-ProjectBlack hover:text-ProjectBlue"
             key={index}

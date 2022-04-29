@@ -1,25 +1,31 @@
 import React from "react"
 import Layout from "../components/layout"
 import { graphql } from "gatsby"
-import RequestForm from "../components/request-form"
 import { BLOCKS } from "@contentful/rich-text-types"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
+import moment from 'moment';
 
-const TermsOfService = ({ data }) => {
+const PrivacyPolicy = ({ data }) => {
 
-  const pageData = data.allContentfulPage.edges[3].node.sections
-  const { formFieldGroups, guid } = data.hubspotForm
   const pageDatas = data.allContentfulPage.edges
-  const TermsData = pageDatas.filter(
+  const ExtraData = pageDatas.filter(
     pageData => {
       const title = pageData?.node?.title
-      if (title.includes("Terms of Service")) {
+      if (title.includes("Privacy Policy")) {
         return pageData
+      } else {
+        return false
       }
     }
   )
-  const NavbarData = TermsData[0]?.node?.sections?.[0]
-  const FooterData = TermsData[0]?.node?.sections?.[2]?.footerColumns
+  const PrivacyData = data?.allContentfulLegal?.edges[0]?.node
+  const NavbarData = ExtraData[0]?.node?.sections?.[0]
+  const FooterData = ExtraData[0]?.node?.sections?.[2]?.footerColumns
+
+  const updatedAtDate = PrivacyData?.page?.[0]?.updatedAt
+  const DateUtc = new Date(updatedAtDate)
+  const retrieveDate = moment(DateUtc).format('MMMM Do YYYY')
+
   const options = {
     renderNode: {
       [BLOCKS.HEADING_5]: (node, children) => {
@@ -44,56 +50,43 @@ const TermsOfService = ({ data }) => {
   return (
     <Layout NavbarData={NavbarData} FooterData={FooterData}>
       <div className="w-screen px-5 lg:px-40 z-20 bg-black">
-        <div className="w-full max-w-screen-xl mx-auto py-12  flex flex-col items-baseline">
-          <p className="text-base text-ProjectBlue font-industryBold">Legal</p>
-          <h1 className="text-white tracking-subtitle text-[3.5rem] leading-tight font-bold my-2 font-industryBlack ">
-            {TermsData[0]?.node?.title}
+        <div className="w-full max-w-screen-xl mx-auto py-12 flex flex-col items-baseline">
+          <p className="text-base text-ProjectBlue font-industryBold uppercase">{PrivacyData?.page?.[0]?.type?.[0]}</p>
+          <h1 className="text-white tracking-subtitle text-[56px] my-[20px] font-industryBlack font-normal tracking-wide leading-tight uppercase">
+            {PrivacyData?.title}
           </h1>
-          <p className="text-base text-white">
-          Last Updated January 24th, 2021
+          <p className="text-[21px] text-white font-workSans leading-normal font-normal">
+            Last Updated  {retrieveDate}
           </p>
         </div>
       </div>
       <div className="w-screen px-5 lg:px-40 z-20">
-        <div className="w-full max-w-screen-xl mx-auto pt-[6.5rem] pb-[26.5rem] flex flex-col items-baseline">
-          <p className="font-industryMedium">MobilePD, Inc.</p>
-          <p className="font-industryMedium">3215 Gonzales St.  Unit 1101</p>
-          <p className="font-industryMedium">Austin, Texas 78702</p>
-          <p className="font-industryMedium">help@atlas.one</p>
-          <p className="font-industryMedium">&nbsp;</p>
-          <p className="font-industryMedium">This page represents a legal document and is the Terms and Conditions (Agreement) for our Websites, https://www.atlas.one, https://atlasone.app, and our mobile application and software as a service named Atlas One, collectively and hereinafter called “Platform.</p>
-          <p className="font-industryMedium">&nbsp;</p>
-          <p className="font-industryBold">Definitions</p>
-          <p className="font-industryMedium">The terms “us”, “we”, and “our” refer to our company MobilePD, Inc. the owner of the Platform. A “Visitor” is someone who merely browses our Platform. A “Member” is someone who has registered with us to use our Platform either as an individual who downloads our mobile app for personal use, or a public safety agency. The term “User” is a collective identifier that refers to either a Visitor or a Member.</p>
-          <p className="font-industryMedium">&nbsp;</p>
-          <p className="font-industryMedium">All text, information, graphics, design, and data offered through our Platform, whether produced by our Members or by us, are collectively known as our “Content”. We distinguish content posted by our Members as “Member Content”.</p>
+        <div className="w-full max-w-screen-xl mx-auto py-[6.5rem] flex flex-col items-baseline policies">
+          {typeof window !== "undefined" ? renderRichText(PrivacyData?.text, options) : ""}
+        </div>
       </div>
-    </div>
     </Layout >
   )
 }
 
-export default TermsOfService
+export default PrivacyPolicy
 
 export const query = graphql`
   query {
-    hubspotForm(id: { eq: "72bc3258-dc2b-4b6d-ab52-1defd4c73e64" }) {
-      guid
-      portalId
-      name
-      submitText
-      redirect
-      formFieldGroups {
-        fields {
-          label
-          name
-          required
-          fieldType
-          placeholder
-          options {
-            label
-            value
+
+    allContentfulLegal {
+      edges {
+        node {
+          title
+          text {
+            raw
           }
+          page {
+            slug
+            title
+            updatedAt
+            type
+         }
         }
       }
     }

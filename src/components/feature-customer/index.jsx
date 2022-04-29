@@ -5,8 +5,8 @@ const FeatureCustomer = ({ FeatureCustomerData }) => {
     const { title, customers } = FeatureCustomerData
 
     return (
-        <div className={`${title ? "w-screen mx-auto bg-grey min-h-[620px] h-full py-10 px-5 lg:px-40 flex items-center justify-center flex-col" : "py-12"}`}>
-            <div className="justify-center text-center pt-5 2xl:px-40">
+        <div className={`${title ? "w-screen mx-auto bg-grey min-h-[326px] h-full py-10 px-5 lg:px-40 flex items-center justify-center flex-col" : "py-12"}`}>
+            <div className="justify-center text-center pt-5">
                 <p style={{ color: "#B5C7DC" }}>
                     {title}
                 </p>
@@ -16,7 +16,7 @@ const FeatureCustomer = ({ FeatureCustomerData }) => {
                     data-sal-delay="0"
                     data-sal-easing="ease">
                     {customers?.map((v, i) => (
-                        <div className="p-5 lg:mx-5 w-1/2 lg:w-auto flex justify-center" key={i}>
+                        <div className="p-5 w-1/2 lg:w-auto flex justify-center" key={i}>
                             <img
                                 srcSet={
                                     `${v?.logo?.gatsbyImageData?.images?.sources?.[0].srcSet}?h=80 1x,

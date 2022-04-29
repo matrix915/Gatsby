@@ -57,3 +57,7 @@
   font-family: "Industry-BookItalic";
   src: url("Industry-BookItalic.ttf") format("truetype");
 }
+@font-face {
+  font-family: "Industry-SemiboldProximaNova";
+  src: url("Industry-SemiboldProximaNova.ttf") format("truetype");
+}

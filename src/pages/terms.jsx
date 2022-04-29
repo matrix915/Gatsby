@@ -1,25 +1,30 @@
 import React from "react"
 import Layout from "../components/layout"
 import { graphql } from "gatsby"
-import RequestForm from "../components/request-form"
 import { BLOCKS } from "@contentful/rich-text-types"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
+import moment from 'moment';
 
-const PrivacyPolicy = ({ data }) => {
-
-  const pageData = data.allContentfulPage.edges[3].node.sections
-  const { formFieldGroups, guid } = data.hubspotForm
+const TermsOfService = ({ data }) => {
   const pageDatas = data.allContentfulPage.edges
-  const PolicyData = pageDatas.filter(
+  const ExtraData = pageDatas.filter(
     pageData => {
       const title = pageData?.node?.title
-      if (title.includes("Privacy Policy")) {
+      if (title.includes("Terms of Service")) {
         return pageData
+      }else{
+        return false
       }
     }
   )
-  const NavbarData = PolicyData[0]?.node?.sections?.[0]
-  const FooterData = PolicyData[0]?.node?.sections?.[2]?.footerColumns
+  const TermsData =  data?.allContentfulLegal?.edges[1]?.node
+  const NavbarData = ExtraData[0]?.node?.sections?.[0]
+  const FooterData = ExtraData[0]?.node?.sections?.[2]?.footerColumns
+  
+  const updatedAtDate = TermsData?.page?.[0]?.updatedAt
+  const DateUtc= new Date(updatedAtDate)
+  const retrieveDate = moment(DateUtc).format('MMMM Do YYYY')
+  
   const options = {
     renderNode: {
       [BLOCKS.HEADING_5]: (node, children) => {
@@ -44,56 +49,43 @@ const PrivacyPolicy = ({ data }) => {
   return (
     <Layout NavbarData={NavbarData} FooterData={FooterData}>
       <div className="w-screen px-5 lg:px-40 z-20 bg-black">
-        <div className="w-full max-w-screen-xl mx-auto py-12 flex flex-col items-baseline">
-          <p className="text-base text-[#00AEEF] font-industryBold">Legal</p>
-          <h1 className="text-white tracking-subtitle text-[3.5rem] leading-tight font-bold my-2 font-industryBlack ">
-            {PolicyData[0]?.node?.title}
+        <div className="w-full max-w-screen-xl mx-auto pt-[109px] pb-[79px]  flex flex-col items-baseline">
+          <p className="text-base text-ProjectBlue font-industrySemiboldProximaNova font-semibold uppercase tracking-widest">{TermsData?.page?.[0]?.type?.[0]}</p>
+          <h1 className="text-white tracking-subtitle text-[56px] my-[20px] font-industryBlack font-normal tracking-wide leading-tight uppercase">
+            {TermsData?.title}
           </h1>
-          <p className="text-base text-white">
-          Last Updated January 24th, 2021
+          <p className="text-[21px] text-white font-workSans leading-normal font-normal">
+            Last Updated {retrieveDate}
           </p>
         </div>
       </div>
       <div className="w-screen px-5 lg:px-40 z-20">
-        <div className="w-full max-w-screen-xl mx-auto py-[6.5rem] flex flex-col items-baseline">
-          <p className="font-industryMedium">MobilePD, Inc.</p>
-          <p className="font-industryMedium">3215 Gonzales St.  Unit 1101</p>
-          <p className="font-industryMedium">Austin, Texas 78702</p>
-          <p className="font-industryMedium">help@atlas.one</p>
-          <p className="font-industryMedium">&nbsp;</p>
-          <p className="font-industryMedium">This page represents a legal document and is the Terms and Conditions (Agreement) for our Websites, https://www.atlas.one, https://atlasone.app, and our mobile application and software as a service named Atlas One, collectively and hereinafter called “Platform.</p>
-          <p className="font-industryMedium">&nbsp;</p>
-          <p className="font-industryBold text-[1.75rem]">Definitions</p>
-          <p className="font-industryMedium">‘NONPERSONAL DATA’ (NPD) is information that is in no way personally identifiable.</p>
-          <p className="font-industryMedium">&nbsp;</p>
-          <p className="font-industryMedium">‘PERSONAL DATA’ (PD) means any information relating to an identified or identifiable natural person (‘data subject’); an identifiable natural person is one who can be identified directly or indirectly by reference to an identifier such as a name, an identification number, location data, an online identifier, or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural, or social identity of that natural person. PD is in many ways the same as Personally Identifiable Information (PII). However, PD is broader in scope and covers more data.</p>
+        <div className="w-full max-w-screen-xl mx-auto pt-[6.5625rem] pb-[26.5625rem] flex flex-col items-baseline terms">
+           {typeof window !== "undefined" ? renderRichText(TermsData?.text, options) : ""}
       </div>
     </div>
     </Layout >
   )
 }
 
-export default PrivacyPolicy
+export default TermsOfService
 
 export const query = graphql`
   query {
-    hubspotForm(id: { eq: "72bc3258-dc2b-4b6d-ab52-1defd4c73e64" }) {
-      guid
-      portalId
-      name
-      submitText
-      redirect
-      formFieldGroups {
-        fields {
-          label
-          name
-          required
-          fieldType
-          placeholder
-          options {
-            label
-            value
+
+    allContentfulLegal {
+      edges {
+        node {
+          title
+          text {
+            raw
           }
+          page {
+            slug
+            title
+            updatedAt
+            type
+         }
         }
       }
     }

@@ -27,7 +27,7 @@ const Footer = ({ variant, FooterData }) => {
         {/* Footer Links */}
         <div>
           <ul className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5">
-            {FooterData.map((data, index) => (
+            {FooterData?.map((data, index) => (
               <div key={index} className="my-3">
                 <li
                   className={`font-robotoMono font-medium text-base mb-[30px] ${
@@ -96,13 +96,13 @@ const Footer = ({ variant, FooterData }) => {
             @ 2022 Atlas One. All right reserved.
           </p>
           <Link
-            to="/privacy-policy"
+            to="/privacy"
             className="text-xs tracking-wide font-industryMedium mx-[15px]"
           >
             Privacy Policy
           </Link>
           <Link
-            to="/terms-of-service"
+            to="/terms"
             className="text-xs tracking-wide font-industryMedium mx-[15px]"
           >
             Terms of Service

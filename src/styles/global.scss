@@ -94,6 +94,9 @@ body {
 .font-industryLight {
   font-family: "Industry-Light", sans-serif;
 }
+.font-industrySemiboldProximaNova{
+  font-family: "Industry-SemiboldProximaNova", sans-serif;
+}
 
 .border-black {
   border-color: black;
@@ -158,8 +161,6 @@ body {
   margin: 0;
   text-transform: uppercase;
 }
-.navbar-border-bottom {
-}
 
 input,
 input:focus,
@@ -185,6 +186,33 @@ select {
 .navbar-border-bottom:hover::after {
   width: 100%;
   //transition: width .3s;
+}
+
+.brand-image {
+  height: 80px;
+}
+
+.navbar-item-anim {
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  > div {
+    opacity: 0;
+    transform: translateY(5px);
+    transition: all 0.5s ease-in-out;
+    visibility: hidden;
+    z-index: -1;
+  }
+
+  &:hover > div {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(35px);
+    transition: all 0.5s ease-in-out;
+  }
 }
 
 @keyframes slide-in {
@@ -227,4 +255,87 @@ select {
   }
 }
 
+.terms {
+  p {
+      font-family: 'Work Sans';
+      font-weight: 400;
+      font-size: 21px;
+      line-height: 150%;
+      margin: 0;
+      color: #000000;
+      b {
+          font-family: 'Work Sans';
+          font-weight: 700;
+          margin:20px 0;
+      }
+  }
+  h2 {
+      font-size: 1.75rem;
+      @media(max-width : 767px){
+          font-size: 1.25rem;
+      }
+  }
+  h3 {
+      font-size: 1.25rem;
+      @media(max-width : 767px){
+          font-size: 1rem;
+      }
+  }
+  code {
+      font-size: 1rem;
+      color: #1F76FF;
+      font-family: "Gilroy-Regular";
+      white-space: pre-line;
+  }
+  a {
+      color: #1F76FF;
+  }
+}
+
+.policies {
+  p {
+      font-family: 'Work Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 21px;
+      line-height: 150%;
+      margin: 20px 0;
+      b {
+        font-family: 'Work Sans';
+        font-weight: 700;
+    }
+  }
+  h2 {
+      font-family: 'Work Sans';
+      font-weight: 700;
+      font-size: 1.75rem;
+      @media(max-width : 767px){
+          font-size: 1.25rem;
+      }
+  }
+  h3 {
+      font-size: 1.25rem;
+      font-family: 'Work Sans';
+      @media(max-width : 767px){
+          font-size: 1rem;
+      }
+  }
+  code {
+      font-size: 1rem;
+      color: #000000;
+      font-family: 'Work Sans';
+      white-space: pre-line;
+  }
+  a {
+      color: #1F76FF;
+  }
+}
+.Proxima{
+  font-family: 'Proxima Nova';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 16px;
+  color: #00AEEF;
+}
 @tailwind utilities;
